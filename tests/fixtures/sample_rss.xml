@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample World News</title>
+    <link>https://news.example.com/world</link>
+    <item>
+      <title>Earthquake strikes off the coast &amp; triggers tsunami warning</title>
+      <link>https://news.example.com/world/quake-123?at_medium=RSS&amp;at_campaign=rss</link>
+      <description><![CDATA[<p>TOKYO (Reuters) - A magnitude 7.1 <b>earthquake</b> struck on Thursday.</p> Get our breaking news email, free app or daily news podcast]]></description>
+      <pubDate>Thu, 29 Oct 2026 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Live: Election results as they come in</title>
+      <link>https://news.example.com/world/live/2026/oct/29/election</link>
+      <description>Follow along.</description>
+      <pubDate>Thu, 29 Oct 2026 11:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Opinion: Why the summit failed</title>
+      <link>https://news.example.com/world/summit-view</link>
+      <pubDate>Thu, 29 Oct 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Central bank holds rates</title>
+      <link>https://news.example.com/business/rates</link>
+      <description>Central bank holds rates</description>
+      <pubDate>Mon, 26 Oct 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Item without a link</title>
+      <description>Should be skipped.</description>
+    </item>
+    <item>
+      <title>Ministers meet in Geneva</title>
+      <link>https://news.example.com/world/geneva</link>
+      <description>Talks resume.</description>
+      <pubDate>Thu, 29 Oct 2026 13:30:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

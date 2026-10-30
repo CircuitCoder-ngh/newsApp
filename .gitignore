@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+.pytest_cache/
+.cache/
+_site/
+
+# Pipeline state lives on the `data` branch (checked out here by CI).
+data/
+.localdata/

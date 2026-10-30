@@ -1,0 +1,54 @@
+{% macro tally(regions, label) %}
+<span class="tally" role="img" aria-label="{{ label }}" title="{{ label }}">{% for r in regions %}<i class="r-{{ r }}"></i>{% endfor %}</span>
+{% endmacro %}
+
+{% macro entry(x, show_story=true) %}
+<li class="entry{% if x.single %} single{% endif %}" data-topic="{{ x.event.topic }}" data-weight="{{ x.weight }}">
+  <time class="when" datetime="{{ x.event.first_seen }}">{{ x.when|clock }}</time>
+  <div class="body">
+    <h3 class="headline"><a href="{{ x.headline_url }}">{{ x.event.headline }}</a></h3>
+    {% if x.event.summary or x.event.blurb %}
+    <p class="blurb">{{ x.event.summary or x.event.blurb }}</p>
+    {% endif %}
+    <div class="coverage">
+      {{ tally(x.regions, x.coverage_label) }}
+      <ul class="sources" aria-label="Reported by">
+        {% for a in x.sources %}<li><a href="{{ a.url }}" title="{{ a.title }}">{{ a.outlet }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    {% if show_story and x.story_updates > 1 %}
+    <p class="story-link"><a href="{{ root }}stories/{{ x.story.id }}.html">Follow this story: {{ x.story_updates }} updates</a></p>
+    {% endif %}
+  </div>
+</li>
+{% endmacro %}
+
+{% macro timeline(days, show_story=true, day_heads=true) %}
+{% for day, entries in days %}
+<section class="day" aria-label="{{ day|longdate }}">
+  {% if day_heads %}
+  <h2 class="day-head">{{ day|dayname }}{% if day|dayname in ("Today", "Yesterday") %} <span>{{ day|longdate }}</span>{% endif %}</h2>
+  {% endif %}
+  <ol class="timeline">
+    {% for x in entries %}{{ entry(x, show_story) }}{% endfor %}
+  </ol>
+</section>
+{% endfor %}
+{% endmacro %}
+
+{% macro filters(single_label) %}
+<form class="filters" aria-label="Filter the list">
+  <fieldset>
+    <legend class="visually-hidden">Topics</legend>
+    {% for key, name in topics.items() %}
+    <label class="chip"><input type="checkbox" id="f-{{ key }}" checked>{{ name }}</label>
+    {% endfor %}
+  </fieldset>
+  <label class="switch"><input type="checkbox" id="f-single">{{ single_label }}</label>
+</form>
+<p class="legend">
+  One bar per outlet:
+  {% for name, cls in regions.items() %}<span><i class="r-{{ cls }}"></i>{{ name }}</span>{% endfor %}
+</p>
+<p class="filtered-empty" hidden>Nothing matches these filters. Turn a topic back on to see more.</p>
+{% endmacro %}

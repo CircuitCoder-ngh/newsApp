@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ title }}{% endblock %}</title>
+<meta name="description" content="World news from {{ outlet_total }} outlets, merged into one timeline and updated hourly.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b2533'/%3E%3Crect x='15' y='4' width='2' height='24' fill='%23f4f6f2'/%3E%3Ccircle cx='16' cy='19' r='6' fill='%23f4f6f2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..800&display=swap">
+<link rel="stylesheet" href="{{ root }}static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <a class="brand" href="{{ root }}index.html">
+    <svg aria-hidden="true" width="12" height="26" viewBox="0 0 12 26"><rect x="5" y="0" width="2" height="26" fill="currentColor"/><circle cx="6" cy="16" r="5" fill="currentColor"/></svg>
+    {{ title }}
+  </a>
+  <nav aria-label="Sections">
+    <a href="{{ root }}index.html"{% if page == "timeline" %} aria-current="page"{% endif %}>Timeline</a>
+    <a href="{{ root }}stories/index.html"{% if page == "stories" %} aria-current="page"{% endif %}>Stories</a>
+    <a href="{{ root }}archive/index.html"{% if page == "archive" %} aria-current="page"{% endif %}>Archive</a>
+  </nav>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="colophon">
+  {% if updated %}
+  <p>Last checked {{ updated|stamp }} {{ timezone_name }}, across {{ outlet_total }} outlets. All times are {{ timezone_name }}.</p>
+  {% endif %}
+  {% if failed_feeds %}
+  <p>{{ failed_feeds|length }} of the feeds didn't respond on the last check, so a few reports may be missing.</p>
+  {% endif %}
+  <p>Headlines and excerpts belong to their publishers. Every entry links to the original reporting.</p>
+</footer>
+<script src="{{ root }}static/app.js" defer></script>
+</body>
+</html>

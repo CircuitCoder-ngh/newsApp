@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Archive | {{ title }}{% endblock %}
+{% block main %}
+<h1>Archive</h1>
+<p class="lede">Every event from the last 30 days, one page per day.</p>
+<ol class="archive-list">
+  {% for day, total, multi in archive_days %}
+  <li>
+    <a href="{{ day.isoformat() }}.html">{{ day|dayname }}</a>
+    <span>{{ multi }} reported by several outlets, {{ total }} in all</span>
+  </li>
+  {% else %}
+  <li class="empty">Nothing archived yet.</li>
+  {% endfor %}
+</ol>
+{% endblock %}

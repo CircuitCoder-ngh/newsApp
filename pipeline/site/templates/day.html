@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ day|longdate }} | {{ title }}{% endblock %}
+{% block main %}
+<p class="crumb"><a href="index.html">Archive</a></p>
+<h1>{{ day|longdate }}</h1>
+<p class="lede">Everything first reported on this day, earliest first.</p>
+{{ m.filters("Include single-outlet reports") }}
+{{ m.timeline(days, day_heads=false) }}
+{% endblock %}

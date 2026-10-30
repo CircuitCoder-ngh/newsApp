@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}Stories | {{ title }}{% endblock %}
+{% block main %}
+<h1>Stories</h1>
+<p class="lede">Ongoing stories from the last month, most recently updated first. Open one to read its full timeline.</p>
+{{ m.filters("Include single-outlet stories") }}
+<ol class="story-list">
+  {% for c in cards %}
+  <li class="story-card{% if c.single %} single{% endif %}" data-topic="{{ c.topic }}">
+    <h2><a href="{{ c.story.id }}.html">{{ c.story.title }}</a></h2>
+    <p class="meta">
+      {{ c.last.date()|dayname }} at {{ c.last|clock }}.
+      {{ c.story.event_ids|length }} {{ "update" if c.story.event_ids|length == 1 else "updates" }}
+      from {{ c.story.outlet_count }} {{ "outlet" if c.story.outlet_count == 1 else "outlets" }}.
+    </p>
+    {{ m.tally(c.regions, c.coverage_label) }}
+  </li>
+  {% else %}
+  <li class="empty">No stories yet.</li>
+  {% endfor %}
+</ol>
+{% endblock %}

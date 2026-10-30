@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ card.story.title }} | {{ title }}{% endblock %}
+{% block main %}
+<p class="crumb"><a href="index.html">All stories</a></p>
+<h1 class="story-title">{{ card.story.title }}</h1>
+<p class="lede">
+  {{ card.story.event_ids|length }} {{ "update" if card.story.event_ids|length == 1 else "updates" }}
+  from {{ card.story.outlet_count }} {{ "outlet" if card.story.outlet_count == 1 else "outlets" }},
+  first reported {{ card.first.date()|longdate }}. Earliest first.
+</p>
+{% if card.story.keywords %}
+<p class="keywords" aria-label="Key terms">{% for k in card.story.keywords %}<span>{{ k }}</span>{% endfor %}</p>
+{% endif %}
+<p class="story-coverage">{{ m.tally(card.regions, card.coverage_label) }}</p>
+{% if card.story.summary %}<p class="summary">{{ card.story.summary }}</p>{% endif %}
+{{ m.timeline(days, show_story=false) }}
+{% endblock %}

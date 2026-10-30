@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block main %}
+<h1>The last 48 hours</h1>
+<p class="lede">What the world's newsrooms reported, merged so each event appears once with links to every outlet that covered it. Reports from a single outlet are hidden unless you turn them on.</p>
+{{ m.filters("Include single-outlet reports") }}
+{% if days %}
+{{ m.timeline(days) }}
+{% else %}
+<p class="empty">No events yet. The next check runs at 17 minutes past the hour.</p>
+{% endif %}
+{% endblock %}

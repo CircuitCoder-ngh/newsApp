@@ -1,0 +1,231 @@
+# News sources. Each outlet lists one or more feeds tagged with a topic:
+#   world    - world news and politics
+#   business - business and economy
+#   science  - science, technology and health
+# Feeds are fetched in the order listed; when the same article appears in two
+# feeds of one outlet, the first feed's topic wins.
+#
+# exclude_url_patterns / exclude_title_patterns are case-insensitive regexes.
+# The defaults apply to every outlet; an outlet's own patterns are added on top.
+# Run `python -m pipeline check-feeds` after editing.
+
+defaults:
+  exclude_url_patterns:
+    - /videos?/
+    - /live/
+    - /podcasts?/
+    - /audio/
+    - /av/
+    - /sounds/
+    - /opinion/
+    - /commentisfree/
+    - /sports?/
+    - /football/
+    - /cricket/
+    - /culture/
+    - /entertainment/
+    - /lifestyle/
+    - /gallery/
+    - /in-pictures/
+    - /quiz
+  exclude_title_patterns:
+    - '^(live|watch|quiz|photos?|in pictures|video|podcast|opinion)\b'
+    - '\b(crossword|wordle|sudoku)\b'
+
+outlets:
+  # --- Europe ---
+  - name: BBC News
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://feeds.bbci.co.uk/news/world/rss.xml"}
+      - {topic: business, url: "https://feeds.bbci.co.uk/news/business/rss.xml"}
+      - {topic: science, url: "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"}
+      - {topic: science, url: "https://feeds.bbci.co.uk/news/technology/rss.xml"}
+      - {topic: science, url: "https://feeds.bbci.co.uk/news/health/rss.xml"}
+
+  - name: The Guardian
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://www.theguardian.com/world/rss"}
+      - {topic: business, url: "https://www.theguardian.com/business/rss"}
+      - {topic: science, url: "https://www.theguardian.com/science/rss"}
+      - {topic: science, url: "https://www.theguardian.com/technology/rss"}
+
+  - name: Sky News
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://feeds.skynews.com/feeds/rss/world.xml"}
+
+  - name: DW
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://rss.dw.com/rdf/rss-en-world"}
+      - {topic: business, url: "https://rss.dw.com/rdf/rss-en-bus"}
+
+  - name: France 24
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://www.france24.com/en/rss"}
+      - {topic: business, url: "https://www.france24.com/en/business-tech/rss"}
+
+  - name: RFI
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://www.rfi.fr/en/rss"}
+
+  - name: Euronews
+    region: Europe
+    feeds:
+      - {topic: world, url: "https://www.euronews.com/rss?format=mrss&level=theme&name=news"}
+
+  # --- Americas ---
+  - name: NPR
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://feeds.npr.org/1004/rss.xml"}
+      - {topic: business, url: "https://feeds.npr.org/1006/rss.xml"}
+      - {topic: science, url: "https://feeds.npr.org/1007/rss.xml"}
+      - {topic: science, url: "https://feeds.npr.org/1128/rss.xml"}
+
+  - name: New York Times
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"}
+      - {topic: business, url: "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml"}
+      - {topic: science, url: "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml"}
+      - {topic: science, url: "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"}
+      - {topic: science, url: "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml"}
+
+  - name: ABC News
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://abcnews.go.com/abcnews/internationalheadlines"}
+
+  - name: CBS News
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://www.cbsnews.com/latest/rss/world"}
+
+  - name: CNBC
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://www.cnbc.com/id/100727362/device/rss/rss.html"}
+      - {topic: business, url: "https://www.cnbc.com/id/10001147/device/rss/rss.html"}
+
+  - name: MercoPress
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://en.mercopress.com/rss/"}
+
+  - name: Buenos Aires Times
+    region: Americas
+    feeds:
+      - {topic: world, url: "https://www.batimes.com.ar/feed"}
+
+  # --- Middle East ---
+  - name: Al Jazeera
+    region: Middle East
+    feeds:
+      - {topic: world, url: "https://www.aljazeera.com/xml/rss/all.xml"}
+
+  - name: Times of Israel
+    region: Middle East
+    feeds:
+      - {topic: world, url: "https://www.timesofisrael.com/feed/"}
+
+  - name: Middle East Eye
+    region: Middle East
+    feeds:
+      - {topic: world, url: "https://www.middleeasteye.net/rss"}
+
+  - name: Arab News
+    region: Middle East
+    feeds:
+      - {topic: world, url: "https://www.arabnews.com/rss.xml"}
+
+  # --- Asia-Pacific ---
+  - name: Times of India
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms"}
+
+  - name: The Hindu
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.thehindu.com/news/international/feeder/default.rss"}
+      - {topic: business, url: "https://www.thehindu.com/business/feeder/default.rss"}
+
+  - name: Dawn
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.dawn.com/feeds/world"}
+
+  - name: South China Morning Post
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.scmp.com/rss/91/feed"}
+      - {topic: business, url: "https://www.scmp.com/rss/92/feed"}
+
+  - name: The Japan Times
+    region: Asia-Pacific
+    exclude_url_patterns: [/life/, /travel/]
+    feeds:
+      - {topic: world, url: "https://www.japantimes.co.jp/feed/"}
+
+  - name: Yonhap
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://en.yna.co.kr/RSS/news.xml"}
+
+  - name: CNA
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311"}
+      - {topic: world, url: "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511"}
+
+  - name: The Straits Times
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.straitstimes.com/news/world/rss.xml"}
+
+  - name: Rappler
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.rappler.com/feed/"}
+
+  - name: ABC Australia
+    region: Asia-Pacific
+    feeds:
+      - {topic: world, url: "https://www.abc.net.au/news/feed/51120/rss.xml"}
+
+  # --- Africa ---
+  - name: AllAfrica
+    region: Africa
+    feeds:
+      - {topic: world, url: "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf"}
+
+  - name: Daily Maverick
+    region: Africa
+    feeds:
+      - {topic: world, url: "https://www.dailymaverick.co.za/dmrss/"}
+
+  - name: Premium Times
+    region: Africa
+    feeds:
+      - {topic: world, url: "https://www.premiumtimesng.com/feed"}
+
+  # --- Science, tech & health specialists ---
+  - name: Ars Technica
+    region: Americas
+    feeds:
+      - {topic: science, url: "https://feeds.arstechnica.com/arstechnica/index"}
+
+  - name: New Scientist
+    region: Europe
+    feeds:
+      - {topic: science, url: "https://www.newscientist.com/feed/home/"}
+
+  - name: STAT
+    region: Americas
+    feeds:
+      - {topic: science, url: "https://www.statnews.com/feed/"}

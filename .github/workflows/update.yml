@@ -1,0 +1,86 @@
+name: Update timeline
+
+# Hourly: fetch feeds, cluster, save state to the `data` branch, publish to Pages.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # The data branch holds only pipeline state, as a single snapshot commit
+      # that each run amends, so the repository doesn't grow by the hour.
+      - name: Check out data branch
+        run: |
+          if git fetch --depth=1 origin data; then
+            git worktree add -B data data FETCH_HEAD
+          else
+            git worktree add --orphan -b data data
+          fi
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen --no-dev
+
+      - name: Restore embedding model
+        uses: actions/cache@v4
+        with:
+          path: .cache/fastembed
+          key: fastembed-bge-small-en-v1.5
+
+      - name: Restore embedding cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/embeddings.npz
+          key: embeddings-${{ github.run_id }}
+          restore-keys: embeddings-
+
+      - name: Fetch and cluster
+        run: uv run --frozen --no-dev python -m pipeline -v run
+
+      - name: Save data
+        working-directory: data
+        run: |
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git rev-parse -q --verify HEAD >/dev/null; then
+            git commit -q --amend --reset-author -m "Data snapshot $(date -u +%FT%TZ)"
+          else
+            git commit -q -m "Data snapshot $(date -u +%FT%TZ)"
+          fi
+          git push -q --force origin data
+
+      - name: Build site
+        run: uv run --frozen --no-dev python -m pipeline build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
