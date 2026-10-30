@@ -110,6 +110,10 @@ def test_build_renders_pages_with_relative_links(env):
     assert "<script>alert(1)</script>" not in index and "&lt;script&gt;" in index
     assert 'href="/' not in index and 'src="/' not in index
     assert 'aria-label="Covered by 2 outlets: 1 Europe, 1 Asia-Pacific"' in index
+    quake_entry = re.search(r'<li class="entry"[^>]*>\s*<time[^>]*>[^<]*</time>\s*<div class="body">\s*'
+                            r'<h3 class="headline"><a[^>]*>Earthquake', index)
+    assert quake_entry and 'data-eu="1" data-ap="1"' in quake_entry.group(0)
+    assert '<option value="2" selected>2 outlets</option>' in index
 
     story_pages = [p for p in (out / "stories").glob("s*.html")]
     assert len(story_pages) == 3

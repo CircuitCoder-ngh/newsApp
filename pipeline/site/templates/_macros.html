@@ -1,9 +1,12 @@
+{# Per-region outlet counts, read by app.js: data-eu="2" data-am="1" ... #}
+{% macro coverage_attrs(counts) %}{% for r, n in counts.items() %} data-{{ r }}="{{ n }}"{% endfor %}{% endmacro %}
+
 {% macro tally(regions, label) %}
 <span class="tally" role="img" aria-label="{{ label }}" title="{{ label }}">{% for r in regions %}<i class="r-{{ r }}"></i>{% endfor %}</span>
 {% endmacro %}
 
 {% macro entry(x, show_story=true) %}
-<li class="entry{% if x.single %} single{% endif %}" data-topic="{{ x.event.topic }}" data-weight="{{ x.weight }}">
+<li class="entry{% if x.single %} single{% endif %}" data-topic="{{ x.event.topic }}" data-weight="{{ x.weight }}"{{ coverage_attrs(x.region_counts) }}>
   <time class="when" datetime="{{ x.event.first_seen }}">{{ x.when|clock }}</time>
   <div class="body">
     <h3 class="headline"><a href="{{ x.headline_url }}">{{ x.event.headline }}</a></h3>
@@ -36,19 +39,36 @@
 {% endfor %}
 {% endmacro %}
 
-{% macro filters(single_label) %}
-<form class="filters" aria-label="Filter the list">
-  <fieldset>
+{# Filtering needs JS (it sums outlets across the chosen regions), so the form
+   starts hidden. Without JS, CSS shows the default view: 2+ outlets, all topics. #}
+{% macro filters(noun) %}
+<form class="filters" aria-label="Filter {{ noun }}" hidden>
+  <fieldset class="filter-row">
     <legend class="visually-hidden">Topics</legend>
     {% for key, name in topics.items() %}
-    <label class="chip"><input type="checkbox" id="f-{{ key }}" checked>{{ name }}</label>
+    <label class="chip"><input type="checkbox" data-topic="{{ key }}" checked>{{ name }}</label>
     {% endfor %}
   </fieldset>
-  <label class="switch"><input type="checkbox" id="f-single">{{ single_label }}</label>
+  <fieldset class="filter-row">
+    <legend class="visually-hidden">Coverage</legend>
+    <label for="f-min">Reported by at least</label>
+    <select id="f-min">
+      {% for n in min_choices %}
+      <option value="{{ n }}"{% if n == min_default %} selected{% endif %}>{{ n }} {{ "outlet" if n == 1 else "outlets" }}</option>
+      {% endfor %}
+    </select>
+    <span>in</span>
+    <span class="region-chips" role="group" aria-label="Outlet regions">
+      {% for name, cls in regions.items() %}
+      <label class="chip region"><input type="checkbox" data-region="{{ cls }}" checked><i class="r-{{ cls }}"></i>{{ name }}</label>
+      {% endfor %}
+    </span>
+  </fieldset>
+  <p class="filter-status">
+    <span class="filter-count" aria-live="polite"></span>
+    Each bar on an entry is one outlet.
+    <button type="button" class="filter-reset" hidden>Reset filters</button>
+  </p>
 </form>
-<p class="legend">
-  One bar per outlet:
-  {% for name, cls in regions.items() %}<span><i class="r-{{ cls }}"></i>{{ name }}</span>{% endfor %}
-</p>
-<p class="filtered-empty" hidden>Nothing matches these filters. Turn a topic back on to see more.</p>
+<p class="filtered-empty" hidden>Nothing matches these filters. Lower the number of outlets or turn more regions on.</p>
 {% endmacro %}

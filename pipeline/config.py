@@ -49,4 +49,5 @@ SITE_TITLE = "Worldline"
 SITE_TIMEZONE = "America/New_York"  # all times on the site are shown in this zone
 TIMELINE_WINDOW = timedelta(hours=48)  # world timeline on the home page
 SITE_DAYS = 30  # number of daily archive pages rendered
-MIN_OUTLETS_DEFAULT = 2  # events with fewer outlets are hidden until toggled on
+MIN_OUTLETS_DEFAULT = 2  # default for the "reported by at least N outlets" filter
+MIN_OUTLET_CHOICES = [1, 2, 3, 4, 5, 6, 8, 10, 15]

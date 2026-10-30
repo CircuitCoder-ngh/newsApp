@@ -6,7 +6,13 @@ A personal world-news timeline. Every hour a GitHub Action reads 54 RSS feeds fr
 - **Stories:** each ongoing story has its own page with its full timeline, earliest first.
 - **Archive:** one page per day for the last 30 days.
 
-Each entry has a small bar chart with one bar per outlet that reported it, colored by the outlet's region. This makes it easy to tell a global story from a regional one. By default, events reported by only one outlet are hidden. A toggle shows them.
+Each entry has a small bar chart with one bar per outlet that reported it, colored by the outlet's region. This makes it easy to tell a global story from a regional one.
+
+The timeline, archive and stories lists share one set of filters:
+- **Topics:** world, business, and science, tech & health.
+- **Coverage:** "reported by at least N outlets in" any mix of regions, counting distinct outlets. For example, "2 outlets in Americas" shows only events that at least two American outlets covered. Bars from regions you've switched off fade, so you can see which outlets count toward the match.
+
+The filters remember your choices between visits. Without JavaScript, the lists show the default view: events reported by at least 2 outlets.
 
 ## How it works
 
@@ -23,7 +29,7 @@ feeds.yaml ──► fetch ──► dedupe ──► embed headlines ──► 
    - **Story:** otherwise the headline starts a new event, which joins the closest open story if it scores at least `STORY_SIM` against that story's latest 40 articles. Otherwise it starts a new story.
 4. **Label** (`pipeline/label.py`) sets each event's headline to the member article closest to the cluster's center. A story's title is the headline of its most widely covered recent event, and its key terms come from class-based TF-IDF.
 5. **Housekeeping** drops one-article stories once they've been quiet for 7 days, and moves stories that have been quiet for 30 days into `archive/`.
-6. **Build** (`pipeline/site/`) renders plain HTML that works without JavaScript. The topic filters are pure CSS. A few lines of JS remember your filter choices.
+6. **Build** (`pipeline/site/`) renders plain HTML. Each entry carries its topic and per-region outlet counts as data attributes, which `static/app.js` uses for filtering.
 
 ## Running locally
 
@@ -65,7 +71,8 @@ Everything tunable is in `pipeline/config.py`:
 | `EVENT_GAP`, `EVENT_MAX_SPAN` | 18h, 36h | How long an event keeps accepting new articles. |
 | `STORY_GAP` | 7 days | How long a quiet story can still pick up new events. |
 | `SITE_TIMEZONE` | America/New_York | Time zone for every time shown on the site. |
-| `MIN_OUTLETS_DEFAULT` | 2 | Events with fewer outlets are hidden until toggled on. |
+| `MIN_OUTLETS_DEFAULT` | 2 | Default for the "reported by at least N outlets" filter. |
+| `MIN_OUTLET_CHOICES` | 1–15 | The choices offered in that filter. |
 
 The defaults were tuned on two days of real coverage. In that data, headlines about the same event scored about 0.76–0.97, headlines from the same story about 0.52–0.70, and unrelated headlines about 0.33–0.50. After changing a threshold, rebuild your local data (`rm -rf .localdata` then `run`) and compare `inspect` output.
 

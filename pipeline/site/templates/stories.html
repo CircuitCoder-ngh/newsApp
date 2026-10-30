@@ -4,10 +4,10 @@
 {% block main %}
 <h1>Stories</h1>
 <p class="lede">Ongoing stories from the last month, most recently updated first. Open one to read its full timeline.</p>
-{{ m.filters("Include single-outlet stories") }}
+{{ m.filters("stories") }}
 <ol class="story-list">
   {% for c in cards %}
-  <li class="story-card{% if c.single %} single{% endif %}" data-topic="{{ c.topic }}">
+  <li class="story-card{% if c.single %} single{% endif %}" data-topic="{{ c.topic }}"{{ m.coverage_attrs(c.region_counts) }}>
     <h2><a href="{{ c.story.id }}.html">{{ c.story.title }}</a></h2>
     <p class="meta">
       {{ c.last.date()|dayname }} at {{ c.last|clock }}.

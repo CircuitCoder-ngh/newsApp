@@ -50,6 +50,10 @@ class Entry:
         return len(self.sources) < config.MIN_OUTLETS_DEFAULT
 
     @property
+    def region_counts(self) -> dict[str, int]:
+        return Counter(self.regions)
+
+    @property
     def story_updates(self) -> int:
         return len(self.story.event_ids) if self.story else 0
 
@@ -60,9 +64,13 @@ class StoryCard:
     regions: list[str]
     coverage_label: str
     topic: str
-    single: bool
+    single: bool  # no event in the story was reported by more than one outlet
     last: datetime
     first: datetime
+
+    @property
+    def region_counts(self) -> dict[str, int]:
+        return Counter(self.regions)
 
 
 def _coverage(outlets: list[str], region_of: dict[str, str]) -> tuple[list[str], str]:
@@ -172,6 +180,8 @@ class SiteBuilder:
             updated=self.local(last_run[0]["at"]) if last_run else None,
             failed_feeds=last_run[0]["feeds_failed"] if last_run else [],
             outlet_total=self.outlet_total,
+            min_default=config.MIN_OUTLETS_DEFAULT,
+            min_choices=config.MIN_OUTLET_CHOICES,
             timezone_name=self.local(self.now).tzname(),
             **ctx,
         )
