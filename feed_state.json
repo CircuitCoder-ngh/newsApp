@@ -1,0 +1,434 @@
+{
+ "https://abcnews.go.com/abcnews/internationalheadlines": {
+  "outlet": "ABC News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"K5tq3jjr9eMUdK6Yyuh/XQ==\"",
+  "last_modified": null,
+  "last_item_count": 25
+ },
+ "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf": {
+  "outlet": "AllAfrica",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 15:30:00 GMT",
+  "last_item_count": 33
+ },
+ "https://en.mercopress.com/rss/": {
+  "outlet": "MercoPress",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 10,
+  "last_error": "no items",
+  "last_error_at": "2026-10-30T22:25:17Z"
+ },
+ "https://en.yna.co.kr/RSS/news.xml": {
+  "outlet": "Yonhap",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "1794066139555",
+  "last_modified": "Sat, 07 Nov 2026 15:40:13 GMT",
+  "last_item_count": 94
+ },
+ "https://feeds.arstechnica.com/arstechnica/index": {
+  "outlet": "Ars Technica",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 7 Nov 2026 13:26:05 GMT",
+  "last_item_count": 20
+ },
+ "https://feeds.bbci.co.uk/news/business/rss.xml": {
+  "outlet": "BBC News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 54
+ },
+ "https://feeds.bbci.co.uk/news/health/rss.xml": {
+  "outlet": "BBC News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 56
+ },
+ "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml": {
+  "outlet": "BBC News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 40
+ },
+ "https://feeds.bbci.co.uk/news/technology/rss.xml": {
+  "outlet": "BBC News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 21
+ },
+ "https://feeds.bbci.co.uk/news/world/rss.xml": {
+  "outlet": "BBC News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 23
+ },
+ "https://feeds.npr.org/1004/rss.xml": {
+  "outlet": "NPR",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 10
+ },
+ "https://feeds.npr.org/1006/rss.xml": {
+  "outlet": "NPR",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 10
+ },
+ "https://feeds.npr.org/1007/rss.xml": {
+  "outlet": "NPR",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 10
+ },
+ "https://feeds.npr.org/1128/rss.xml": {
+  "outlet": "NPR",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 10
+ },
+ "https://feeds.skynews.com/feeds/rss/world.xml": {
+  "outlet": "Sky News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"91010af8a56b5dc681229603561df8a367adcd4ff3988a59976b9aa6f6b14b4e\"",
+  "last_modified": null,
+  "last_item_count": 6
+ },
+ "https://rss.dw.com/rdf/rss-en-bus": {
+  "outlet": "DW",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 20
+ },
+ "https://rss.dw.com/rdf/rss-en-world": {
+  "outlet": "DW",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 13
+ },
+ "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml": {
+  "outlet": "New York Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 49
+ },
+ "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml": {
+  "outlet": "New York Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 20
+ },
+ "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml": {
+  "outlet": "New York Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 25
+ },
+ "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml": {
+  "outlet": "New York Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 24
+ },
+ "https://rss.nytimes.com/services/xml/rss/nyt/World.xml": {
+  "outlet": "New York Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 54
+ },
+ "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms": {
+  "outlet": "Times of India",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"0fb84195837d3011fba44ee6abafebd50-gzip\"",
+  "last_modified": "Sat, 07 Nov 2026 15:27:43 GMT",
+  "last_item_count": 20
+ },
+ "https://www.abc.net.au/news/feed/51120/rss.xml": {
+  "outlet": "ABC Australia",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"17y0etqq6h31uws\"",
+  "last_modified": null,
+  "last_item_count": 25
+ },
+ "https://www.aljazeera.com/xml/rss/all.xml": {
+  "outlet": "Al Jazeera",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"d0b0d345113a85d2038f8d7100b0bb16\"",
+  "last_modified": "Sat, 07 Nov 2026 15:11:09 GMT",
+  "last_item_count": 25
+ },
+ "https://www.arabnews.com/rss.xml": {
+  "outlet": "Arab News",
+  "failures": 34,
+  "last_error": "HTTPStatusError: Client error '403 Forbidden' for url 'https://www.arabnews.com/rss.xml'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+  "last_error_at": "2026-11-07T15:41:52Z"
+ },
+ "https://www.batimes.com.ar/feed": {
+  "outlet": "Buenos Aires Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"1be0cc951867f8d1cbc1518c3e2ba965-gzip\"",
+  "last_modified": null,
+  "last_item_count": 100
+ },
+ "https://www.cbsnews.com/latest/rss/world": {
+  "outlet": "CBS News",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 15:40:11 GMT",
+  "last_item_count": 30
+ },
+ "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6311": {
+  "outlet": "CNA",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"1794065643\"",
+  "last_modified": "Sat, 07 Nov 2026 15:34:03 GMT",
+  "last_item_count": 20
+ },
+ "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511": {
+  "outlet": "CNA",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"1794065639\"",
+  "last_modified": "Sat, 07 Nov 2026 15:33:59 GMT",
+  "last_item_count": 20
+ },
+ "https://www.cnbc.com/id/10001147/device/rss/rss.html": {
+  "outlet": "CNBC",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 30
+ },
+ "https://www.cnbc.com/id/100727362/device/rss/rss.html": {
+  "outlet": "CNBC",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 30
+ },
+ "https://www.dailymaverick.co.za/dmrss/": {
+  "outlet": "Daily Maverick",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 50
+ },
+ "https://www.dawn.com/feeds/world": {
+  "outlet": "Dawn",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 15:38:03 GMT",
+  "last_item_count": 30
+ },
+ "https://www.euronews.com/rss?format=mrss&level=theme&name=news": {
+  "outlet": "Euronews",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"37b221503ba9f75755d1a9ce6bebefc9\"",
+  "last_modified": "Sat, 07 Nov 2026 12:51:34 GMT",
+  "last_item_count": 50
+ },
+ "https://www.france24.com/en/business-tech/rss": {
+  "outlet": "France 24",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 30
+ },
+ "https://www.france24.com/en/rss": {
+  "outlet": "France 24",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 24,
+  "last_error": "HTTPStatusError: Client error '403 Forbidden' for url 'https://www.france24.com/en/rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+  "last_error_at": "2026-11-04T06:32:34Z"
+ },
+ "https://www.japantimes.co.jp/feed/": {
+  "outlet": "The Japan Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 30
+ },
+ "https://www.middleeasteye.net/rss": {
+  "outlet": "Middle East Eye",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"1794065288\"",
+  "last_modified": "Sat, 07 Nov 2026 15:28:08 GMT",
+  "last_item_count": 20
+ },
+ "https://www.newscientist.com/feed/home/": {
+  "outlet": "New Scientist",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"6b3a40cbadabb3cf2c8fc54dd08c003d\"",
+  "last_modified": "Tue, 03 Nov 2026 14:41:17 GMT",
+  "last_item_count": 10
+ },
+ "https://www.premiumtimesng.com/feed": {
+  "outlet": "Premium Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"0eb5fed25817d31d098e7f1adeec9120\"",
+  "last_modified": "Sat, 07 Nov 2026 15:30:49 GMT",
+  "last_item_count": 15
+ },
+ "https://www.rappler.com/feed/": {
+  "outlet": "Rappler",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "\"eb24fa8f565900c1f03976f331d53aa6\"",
+  "last_modified": "Sat, 07 Nov 2026 14:44:32 GMT",
+  "last_item_count": 10
+ },
+ "https://www.rfi.fr/en/rss": {
+  "outlet": "RFI",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": null,
+  "last_item_count": 22
+ },
+ "https://www.scmp.com/rss/91/feed": {
+  "outlet": "South China Morning Post",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 15:25:19 GMT",
+  "last_item_count": 50
+ },
+ "https://www.scmp.com/rss/92/feed": {
+  "outlet": "South China Morning Post",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 09:59:57 GMT",
+  "last_item_count": 50
+ },
+ "https://www.statnews.com/feed/": {
+  "outlet": "STAT",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"805500d2c5504fb98ce919b7f41b2226\"",
+  "last_modified": "Sat, 07 Nov 2026 15:00:14 GMT",
+  "last_item_count": 20
+ },
+ "https://www.straitstimes.com/news/world/rss.xml": {
+  "outlet": "The Straits Times",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"8ded-5TRNkC4SWrJm8wisd3xs1ZpCsrA\"",
+  "last_modified": null,
+  "last_item_count": 50
+ },
+ "https://www.theguardian.com/business/rss": {
+  "outlet": "The Guardian",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"hash821981961712323465\"",
+  "last_modified": null,
+  "last_item_count": 20
+ },
+ "https://www.theguardian.com/science/rss": {
+  "outlet": "The Guardian",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"hash-1878859697195992084\"",
+  "last_modified": null,
+  "last_item_count": 28
+ },
+ "https://www.theguardian.com/technology/rss": {
+  "outlet": "The Guardian",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"hash5977899302301887460\"",
+  "last_modified": null,
+  "last_item_count": 36
+ },
+ "https://www.theguardian.com/world/rss": {
+  "outlet": "The Guardian",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": "W/\"hash-3119168498433079703\"",
+  "last_modified": null,
+  "last_item_count": 45
+ },
+ "https://www.thehindu.com/business/feeder/default.rss": {
+  "outlet": "The Hindu",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 09:33:32 GMT",
+  "last_item_count": 60
+ },
+ "https://www.thehindu.com/news/international/feeder/default.rss": {
+  "outlet": "The Hindu",
+  "failures": 0,
+  "last_ok_at": "2026-11-07T15:41:52Z",
+  "etag": null,
+  "last_modified": "Sat, 07 Nov 2026 14:38:23 GMT",
+  "last_item_count": 60
+ },
+ "https://www.timesofisrael.com/feed/": {
+  "outlet": "Times of Israel",
+  "failures": 34,
+  "last_error": "HTTPStatusError: Client error '403 Forbidden' for url 'https://www.timesofisrael.com/feed/'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+  "last_error_at": "2026-11-07T15:41:52Z"
+ }
+}
